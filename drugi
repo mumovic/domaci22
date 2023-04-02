@@ -1,0 +1,18 @@
+i=5;
+j=1;
+x=[0.9*i, -0.9*i, -0.9*i, -0.9*i, -0.9*i, -1.1*i, 0.9*i, -0.7*i, 0.5*i,0.2*i];
+y=[-0.5*j, -1.0*j, 1.1*j, -0.2*j, 0.6*j, 0.0*j, -0.4*j, -1.5*j, -0.5*j,0.6*j];
+z=[x;ones(1,10)];
+c=mean(y.^2);
+h=z*y'/10;
+R=z*z'/10;
+xo=inv(R)*h;
+f=c-1/2*xo'*h
+figure
+plot(x,y,'o')
+x=-5:0.5:5;
+y=xo(1)*x+xo(2)*1;
+hold on
+plot(x,y,'b')
+grid on
+legend('Podaci','Linearna aproksimacija')
